@@ -22,8 +22,7 @@ untuk >
  
  password : 123
  
-=============================================================================================================
-# php berapa sih ?
+===========================================================================
 
 versi php pada digunakan pada deployment menggunakan PHP versi 7.2.3 akan tetapi kamu juga bisa mengunakan PHP versi 5.6.xx
 
@@ -38,4 +37,4 @@ versi php pada digunakan pada deployment menggunakan PHP versi 7.2.3 akan tetapi
  3. Untuk mobile mengunakan amdroid studio
  4. Untuk Rest API Server nya menggunakan Codeigneter (CI versi 3.1.6)
  
- ===============================================================================================================
+ =============================================================================
