@@ -38,4 +38,4 @@ versi php pada digunakan pada deployment menggunakan PHP versi 7.2.3 akan tetapi
  3. Untuk mobile mengunakan amdroid studio
  4. Untuk Rest API Server nya menggunakan Codeigneter (CI versi 3.1.6)
  
- ==================================================================================================================
+ ===============================================================================================================
