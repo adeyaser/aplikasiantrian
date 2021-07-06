@@ -1,0 +1,30 @@
+.box-login{
+	background-color:transparent;
+	box-shadow: 0 0 3px #000;
+	border: 1px soli transparent;
+	border-radius: 3px;
+	margin: 10px auto;
+	float: none; 
+}
+
+.box{
+	background-color: transparent;
+	box-shadow: 0 0 3px transparent;
+	border: 1px solid transparent;
+	border-radius: 3px;
+	margin: auto;
+	float: none; 
+}
+
+header {
+	background-color:transparent;
+	border: 1px solid blue;
+	padding: 15px 0;
+	box-shadow: 0 0 3px #000;
+}
+.content {
+	margin: auto;
+	/*box-shadow: 0 0 3px #000;*/
+	padding: auto;
+	/*border: 1px solid #e5e5e5*/
+}
