@@ -6,8 +6,11 @@ Aplikasi ini di gunakan untuk mananage antrian
 Insatalasi nya adalah sebagai berikut :
 
 1. Kamu bisa mengclone atau mendownload project ini.
+
    untuk aplikasi nya : https://github.com/adeyaser/aplikasiantrian.git
+   
    untuk Rest API Server nya nya : https://github.com/adeyaser/api_antrian.git
+   
 2. Taruh/atau tempatkan di folder server kamu, misal htdocs atau yang lain nya
    masukan file Rest API Server pada folder aplikasiantrian.
 3. kemudian export file database yang sudah kami sediakan dengan nama dbantrian
