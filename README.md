@@ -1,5 +1,5 @@
 # aplikasiantrian
-Aplikasi ini di gunakan untu mananage antrian
+Aplikasi ini di gunakan untuk mananage antrian
 
 # Instalasi
 
@@ -15,8 +15,11 @@ Insatalasi nya adalah sebagai berikut :
 5. Pastikan proses 1 dan 2 dilakukan dengan benar.
 
 untuk > 
+
  login admin
+ 
  username : Maria
+ 
  password : 123
  
 =======================================================================================================================================================================
