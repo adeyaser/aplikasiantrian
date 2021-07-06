@@ -17,7 +17,7 @@ Insatalasi nya adalah sebagai berikut :
 4. dan kemudian kamu jalankan server kamu (xampp, atau yang lain nya) jalankan apache, dan mySql nya
 5. Pastikan proses 1 dan 2 dilakukan dengan benar.
 
-untuk > 
+# Untuk Akses Aplikasi
 
  login admin
  
