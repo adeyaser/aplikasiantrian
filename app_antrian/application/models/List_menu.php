@@ -43,6 +43,53 @@ class List_menu extends CI_Model {
 		return $data->result();
 	}
 
+	public function reporting($tanggal_awal ='',$tanggal_akhir='')
+	{
+		$where='';
+
+		if($tanggal_awal !='' && $tanggal_akhir !=''){
+			$tanggal_akhir = date("Y-m-d", strtotime($tanggal_akhir.'+ 1 days'));
+		   $where .= " WHERE  tanggal  BETWEEN CAST('$tanggal_awal' AS DATE) AND CAST('$tanggal_akhir' AS DATE)";
+		}
+
+		$sql=" select *
+				 from (
+						SELECT 
+						no_antrian,
+						id_antrian,
+						room,
+						DATE_FORMAT(tanggal,'%d-%m-%Y') as tgl_sort,
+						tanggal,
+						id_pasien,
+						nama_pasien,
+						id_pegawai,
+						nama_pegawai,
+						case 
+						  when aktif = 'Y' then 'Belum Memenuhi Panggilan'
+						  else 'Memenuhi Panggilan' end as keterangan
+						FROM (
+						  SELECT 
+							a.no_antrian,
+							a.id_antrian,
+							substr(a.id_antrian,1,1)as room,
+							a.tanggal,
+							a.id_pasien,
+							p.nama_pasien,
+							a.id_pegawai,
+							pg.nama_pegawai,
+							a.aktif 
+						  FROM ANTRIAN a 
+						  LEFT JOIN pasien p on a.id_pasien = p.id_pasien 
+						  LEFT JOIN pegawai pg on a.id_pegawai = pg.id_pegawai 
+						  ORDER BY TANGGAL ASC
+				  		 )T 
+			  		)A  $where ";
+			// print_r($sql);die;
+		$data = $this->db->query($sql);
+	    return $data->result();
+
+	}
+
 }
 
 /* End of file List_menu.php */

@@ -1,6 +1,8 @@
 <?php
 
 defined('BASEPATH') or exit('No direct script access allowed');
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Home extends CI_Controller
 {
@@ -502,6 +504,124 @@ class Home extends CI_Controller
         $data_antrian   = $this->senddataurl('antrian',$params,'DELETE');
         $result         = $data_antrian;
         echo json_encode($result);
+
+    }
+
+    public function laporan_antrian(){
+       $data['conten']='Laporan Antrian';
+       $views='conten/laporan';
+       $this->view_request($data,$views);
+    }
+
+    public function reporting_view()
+    {
+      $tanggal_awal = $this->input->post('tanggal_awal');
+      $tanggal_akhir= $this->input->post('tanggal_akhir');
+
+      $result = $this->list_menu->reporting($tanggal_awal,$tanggal_akhir);
+
+      $data = array(
+        'data' => array()
+    );
+    $num = 1;		
+    foreach($result  as $key => $value) {
+        foreach ($value as $key1 => $values) {
+            $data['data'][$key][$key1] = htmlspecialchars($values,ENT_QUOTES);
+        }
+        $data['data'][$key]['num'] = $num;
+        $num++;
+    }
+    echo json_encode($data);
+    
+    }
+
+    public function reporting_print()
+    {
+      $tanggal_awal = $this->input->post('tanggal_awal');
+      $tanggal_akhir= $this->input->post('tanggal_akhir');
+      $this->load->library('Libexcel');
+      $objPHPExcel = new PHPExcel();
+      $result = $this->list_menu->reporting($tanggal_awal,$tanggal_akhir);
+
+      $objPHPExcel->setActiveSheetIndex(0)
+      ->setCellValue('A1', 'Laporan Antrian')
+      ->setCellValue('A2', 'Dari Tanggal')
+      ->setCellValue('A3', 'Sampai Tanggal')
+      ->setCellValue('C2', $tanggal_awal)
+      ->setCellValue('C3', $tanggal_akhir)
+      ->setCellValue('A5', 'No')
+      ->setCellValue('B5', 'Tanggal')
+      ->setCellValue('C5', 'No Antrian')
+      ->setCellValue('D5', 'Id Pasien')
+      ->setCellValue('E5', 'Nama Pasien')
+      ->setCellValue('F5', 'Id Pegawai')
+      ->setCellValue('G5', 'Nama Pegawai')
+      ->setCellValue('H5', 'Keterangan')
+      ->mergeCells('A1:B1')
+      ->mergeCells('A2:B2')
+      ->mergeCells('A3:B3');
+
+      $row = 6;
+      $num = 1;
+      foreach ($result as $data_header ) {
+        $objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(4);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(21);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(30);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(20);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setWidth(20);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('F')->setWidth(20);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('G')->setWidth(20);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('H')->setWidth(20);
+
+        $objPHPExcel->getActiveSheet()->setCellValue('A'. $row, $num);
+        $objPHPExcel->getActiveSheet()->setCellValue('B'. $row, $data_header->tanggal);
+        $objPHPExcel->getActiveSheet()->setCellValue('C'. $row, $data_header->id_antrian);
+        $objPHPExcel->getActiveSheet()->setCellValue('E'. $row, $data_header->id_pasien);
+        $objPHPExcel->getActiveSheet()->setCellValue('D'. $row, $data_header->nama_pasien);
+        $objPHPExcel->getActiveSheet()->setCellValue('F'. $row, $data_header->id_pegawai);
+        $objPHPExcel->getActiveSheet()->setCellValue('G'. $row, $data_header->nama_pegawai);
+        $objPHPExcel->getActiveSheet()->setCellValue('H'. $row, $data_header->keterangan);
+
+        $row++;
+        $num++;
+
+      }
+       $objPHPExcel->getActiveSheet()->getStyle('A5:H5')->getFill()
+  							->setFillType(PHPExcel_Style_Fill::FILL_SOLID)
+  							->getStartColor()->setARGB('EBE9E9');
+        $objPHPExcel->getActiveSheet()->getStyle('A'.$row.":H".$row)->getFill()
+  							->setFillType(PHPExcel_Style_Fill::FILL_SOLID)
+  							->getStartColor()->setARGB('EBE9E9');
+
+        $objPHPExcel->getActiveSheet()->getStyle('A5:H5')->getFill()
+                              ->setFillType(PHPExcel_Style_Fill::FILL_SOLID)
+                              ->getStartColor()->setARGB('EBE9E9');
+
+       $styleArray = array(
+                    'borders' => array(
+                    'allborders' => array(
+                    'style' => PHPExcel_Style_Border::BORDER_THIN,
+                    'color' => array('argb' => '0F0F0F'),
+                    ),
+                ),
+             );
+
+      $objPHPExcel->getActiveSheet()->getStyle('A5:H5')->getFont()->setBold(true);
+      $objPHPExcel->getActiveSheet()->getStyle('A1:C3')->getFont()->setBold(true);
+      $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+
+      //Header
+      header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+      header("Cache-Control: no-store, no-cache, must-revalidate");
+      header("Cache-Control: post-check=0, pre-check=0", false);
+      header("Pragma: no-cache");
+      header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+
+      //Nama File
+      header('Content-Disposition: attachment;filename="Laporan Antrian.xlsx"');
+
+      //Download
+      $objWriter->save("php://output");
 
     }
 
