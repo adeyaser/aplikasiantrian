@@ -143,7 +143,7 @@
 			"columns": [
 		        { "data": "num" },
 		        { "data": "tanggal" },
-		        { "data": "no_antrian" },
+		        { "data": "id_antrian" },
                 { "data": "id_pasien" },
 		        { "data": "nama_pasien" },
                 { "data": "id_pegawai" },
