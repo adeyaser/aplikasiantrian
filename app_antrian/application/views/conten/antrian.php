@@ -7,6 +7,7 @@
 			</ol>
 			<h1>ANTRIAN PASIEN</h1>
 		</div>
+
 		<div class="row">
         <div class="col-sm-4">
           <div class="card bg-white text-dark">
@@ -17,6 +18,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-sm-4">
           <div class="card bg-white text-dark">
             <div class="card-body">
@@ -26,6 +28,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-sm-4">
           <div class="card bg-white text-dark">
             <div class="card-body">
@@ -36,6 +39,7 @@
           </div>
         </div>
       </div>
+
       <div class="card text-center">
       <div class="card-header">
         <br>
@@ -70,93 +74,89 @@
 				</tbody>
 			</table>
 		</div>
+
      </div>
-       </div>
-		<div class="col-12">
+        </div>
+		    <div class="col-12">
 			<hr style="margin: 4px;">
-		</div>
-		
-		<div class="row">
-        <div class="col-sm-12">
-          <div class="card bg-white text-dark">
-            <div class="card-body">
-              <class="card-title"><h3>DATA ANTRIAN A </h3>
-			          <div class="col-4 tp-m-tp- table-responsive">
-                   <table id="tbl_a" class="table table-hover">
-				 		         <thead>
-				 			         <tr>
-				 				         <th>NO</th><th>NAMA PASIEN </th><th>ANTRIAN</th><th>AKSI</th>
-				 			         </tr>
-				 		          </thead>
-				 		         <tbody></tbody>
-				            </table>
-                  </div>
-                </div>
-              </div>
-	          </div>
-
-
-        <div class="col-sm-12">
-          <div class="card bg-white text-dark">
-            <div class="card-body">
-              <class="card-title"><h3>DATA ANTRIAN  B</h3>
-		            <div class="col-12 tp-m-tp- table-responsive">	
-                   <table id="tbl_b" class="table table-hover">
-				 		         <thead>
-				 		        	<tr>
-				 			        	<th>NO</th><th>NAMA PASIEN </th><th>ANTRIAN</th><th>AKSI</th>
-				 			         </tr>
-				 		          </thead>
-				 		         <tbody></tbody>
-			          	  </table>
-                  </div>
-                </div>
-              </div>
-          	</div>
-
-		
-        <div class="col-sm-12">
-          <div class="card bg-white text-dark">
-            <div class="card-body">
-                <class="card-title"><h3>DATA ANTRIAN C</h3>
-			       <div class="col-12 tp-m-tp- table-responsive"> 
-				 	         <table id="tbl_c" class="table table-hover">
-				 	        	<thead>
-				 		        	<tr>
-				 			        	<th>NO</th><th>NAMA PASIEN </th><th>ANTRIAN</th><th>AKSI</th>
-				 			        </tr>
-				 		        </thead>
-				 		       <tbody></tbody>
-				         </table>
-              </div>
-            </div>
-         </div>		 
+		</div>			
+	  	<div class="row">
+        	<div class="col-sm-12">
+          	<div class="card bg-white text-dark">
+          <div class="card-body">
+         	<class="card-title"><h3>DATA ANTRIAN A </h3>
+			 <div class="col-4 tp-m-tp- table-responsive">
+         		<table id="tbl_a" class="table table-hover">
+		  		  <thead>
+					 <tr>
+				 		<th>NO</th>
+						 <th>NAMA PASIEN </th><th>ANTRIAN</th><th>AKSI</th>
+				 	 </tr>
+				  </thead>
+				  <tbody></tbody>
+			   	</table>
+             </div>
+          </div>
+         </div>
+	 </div>
+     <div class="col-sm-12">
+      <div class="card bg-white text-dark">
+        <div class="card-body">
+         <class="card-title"><h3>DATA ANTRIAN  B</h3>
+		   <div class="col-12 tp-m-tp- table-responsive">	
+             <table id="tbl_b" class="table table-hover">
+				 <thead>
+					<tr>
+				 		<th>NO</th><th>NAMA PASIEN </th><th>ANTRIAN</th><th>AKSI</th>
+				     </tr>
+				 </thead>
+				<tbody></tbody>
+			 </table>
+           </div>
+        </div>
       </div>
-	</div>
-
-		<div class="col-12">
-				<hr style="margin: 4px;">
-			</div>
-			<div class="col-12">
-				<div class="card bg-white text-dark">
-					<div class="card-body">
-					<class="card-title"><h3>ALL DATA ANTRIAN</h3>
-						<div class="row">
-							<div class="col-12 tp-m-tp- table-responsive">
-								<table id="mastertable" class="table table-hover">
-									<thead>
-										<tr>
-										<th>NO</th><th>ID PASIEN </th><th>NAMA PASIEN </th><th>ANTRIAN</th><th>TANGGAL DAN JAM </th><th>AKSI</th>
-										</tr>
-									</thead>
-									<tbody></tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	</div>	
+    <div class="col-sm-12">
+     <div class="card bg-white text-dark">
+      <div class="card-body">
+        <class="card-title"><h3>DATA ANTRIAN C</h3>
+		  <div class="col-12 tp-m-tp- table-responsive"> 
+			 <table id="tbl_c" class="table table-hover">
+				 <thead>
+				 	<tr>
+				 		<th>NO</th><th>NAMA PASIEN </th><th>ANTRIAN</th><th>AKSI</th>
+				 	</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+          </div>
+       </div>
+     </div>		 
+   </div>
+</div>
+    <div class="col-12">
+  		<hr style="margin: 4px;">
+  	</div>
+  	<div class="col-12">
+  		<div class="card bg-white text-dark">
+  			<div class="card-body">
+  			<class="card-title"><h3>ALL DATA ANTRIAN</h3>
+  				<div class="row">
+  					<div class="col-12 tp-m-tp- table-responsive">
+  					 <table id="mastertable" class="table table-hover">
+  						 <thead>
+  							<tr>
+  							  <th>NO</th><th>ID PASIEN </th><th>NAMA PASIEN </th><th>ANTRIAN</th><th>TANGGAL DAN JAM </th><th>AKSI</th>
+  							</tr>
+  							</thead>
+  						<tbody></tbody>
+  					 </table>
+  				   </div>
+  				 </div>
+  			   </div>
+  		     </div>
+  	       </div>
+		 </div>
 	  </div>
    </div>
 </div>
