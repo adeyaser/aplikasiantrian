@@ -166,7 +166,7 @@
     console.log(xhr);
 }
 		});
-	//	load_grid_data(); 
+		load_grid_data(); 
 
 	console.log(xhr.responseURL);
 		
